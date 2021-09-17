@@ -11,7 +11,7 @@ public class MenuPrincipal {
         System.out.println("O que deseja fazer?"+
                 "\n [1] Acessar Clientes" +
                 "\n [2] Acessar Cachorros" +
-                "\n [3} Acessar Reservas");
+                "\n [3] Acessar Reservas");
         int escolha = scanner.nextInt();
 
         switch (escolha){
