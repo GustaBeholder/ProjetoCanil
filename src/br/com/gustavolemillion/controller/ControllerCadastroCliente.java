@@ -56,7 +56,7 @@ public class ControllerCadastroCliente {
         String estado  = scanner.nextLine();
 
 
-        Cliente cliente = new Cliente(nome,cpf, rg, dataNascimento, cep, rg, numeroEndreco, bairro, cidade, estado);
+        Cliente cliente = new Cliente(nome,cpf, rg, dataNascimento, cep, logradouro, numeroEndreco, bairro, cidade, estado);
         ClienteDAO clienteDAO = new ClienteDAO();
         clienteDAO.adcionaCliente(cliente);
     }
@@ -150,6 +150,7 @@ public class ControllerCadastroCliente {
             }
         }
     }
+
 
 
 }

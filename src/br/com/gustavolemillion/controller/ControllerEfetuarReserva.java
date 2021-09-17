@@ -49,9 +49,6 @@ public class ControllerEfetuarReserva {
 
         Date dataReserva = new Date(System.currentTimeMillis());
 
-        String pagoReserva = "s";
-        String pagoIntegral = "n";
-        String entregue = "n";
 
         System.out.println("Qual o valor da Reserva?");
         Double valorReserva = scanner.nextDouble();
@@ -60,12 +57,13 @@ public class ControllerEfetuarReserva {
         Double valoIntegral = scanner.nextDouble();
 
         System.out.println("Qual a forma de entrega: Retirar no local - Transportadora");
-        String formaEntregue = scanner.nextLine();
+        String formaEntregue = "Retirar no local";
+
 
         System.out.println("Qual a forma pagamento? Pix - Débito - Crédito - Boleto");
-        String formaPagamento = scanner.nextLine();
+        String formaPagamento = "Crédito";
 
-        Reserva reserva = new Reserva(idCachorro, idCliente, dataReserva,pagoReserva,pagoIntegral, entregue,valorReserva, valoIntegral, formaEntregue, formaPagamento );
+        Reserva reserva = new Reserva(idCachorro, idCliente, dataReserva,"sim","não", "não",valorReserva, valoIntegral, formaEntregue, formaPagamento );
         ReservaDAO reservaDAO = new ReservaDAO();
         reservaDAO.criaReserva(reserva);
 

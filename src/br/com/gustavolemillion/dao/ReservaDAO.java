@@ -57,7 +57,7 @@ public class ReservaDAO {
     }
 
     public void criaReserva(Reserva reserva) throws RuntimeException{
-        String sql = "INSERT into reserva (idCachorro, idCliente, dataReserva, pagoReserva, entregue, valorReserva, valorIntegral, formaEntrega, formaPagamento) values (?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT into reserva (idCachorro, idCliente, dataReserva, pagoReserva, pagoIntegral, entregue, valorReserva, valorIntegral, formaEntrega, formaPagamento) values (?,?,?,?,?,?,?,?,?,?)";
 
         try{
             PreparedStatement stmt = getConnection().prepareStatement(sql);
@@ -66,11 +66,12 @@ public class ReservaDAO {
             stmt.setInt(2, reserva.getIdCliente());
             stmt.setDate(3, reserva.getDataReserva());
             stmt.setString(4, reserva.getPagoReserva());
-            stmt.setString(5, reserva.getEntrega());
-            stmt.setDouble(6, reserva.getValorReserva());
-            stmt.setDouble(7, reserva.getValorIntegral());
-            stmt.setString(8, reserva.getFormaEntrega());
-            stmt.setString(9, reserva.getFormaPagamento());
+            stmt.setString(5, reserva.getPagoIntegral());
+            stmt.setString(6, reserva.getEntrega());
+            stmt.setDouble(7, reserva.getValorReserva());
+            stmt.setDouble(8, reserva.getValorIntegral());
+            stmt.setString(9, reserva.getFormaEntrega());
+            stmt.setString(10, reserva.getFormaPagamento());
             stmt.execute();
             stmt.close();
             System.out.println("Reserva feita!");
@@ -83,7 +84,7 @@ public class ReservaDAO {
 
     public void editaReserva(int id, Reserva novaReserva) throws RuntimeException, SQLException {
         String sql = "UPDATE reserva set idCachorro = " + novaReserva.getIdCachorro() + ",idCliente = " + novaReserva.getIdReserva() +
-                ", dataReserva = " + novaReserva.getDataReserva() + ",pagoReserva = '" + novaReserva.getPagoReserva() +
+                ", dataReserva = '" + novaReserva.getDataReserva() + "',pagoReserva = '" + novaReserva.getPagoReserva() +
                 "', pagoIntegral = '" + novaReserva.getPagoIntegral() + "', entregue = '" + novaReserva.getEntrega() + "', valorReserva = " + novaReserva.getValorReserva() +
                 ", valorIntegral = " + novaReserva.getValorIntegral() + ", formaEntrega = '" + novaReserva.getFormaEntrega() + "', formaPagamento = '" + novaReserva.getFormaPagamento() + "'  where idReserva = " + id;
         PreparedStatement stmt = getConnection().prepareStatement(sql);
