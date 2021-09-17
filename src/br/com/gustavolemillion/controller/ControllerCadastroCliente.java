@@ -24,36 +24,35 @@ public class ControllerCadastroCliente {
     }
 
     public static void menuAdcionaCliente()throws SQLException{
-        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Informe o nome do cliente:");
-        String nome = scanner.nextLine();
+        String nome = Console.leLinhaTexto();
 
         System.out.println("Informe o cpf:");
-        String cpf  = scanner.nextLine();
+        String cpf  = Console.leLinhaTexto();
 
         System.out.println("Informe o RG");
-        String rg  = scanner.nextLine();
+        String rg  = Console.leLinhaTexto();
 
         Date dataNascimento = Data.pedirData();
 
         System.out.println("Informe o CEP:");
-        String cep  = scanner.nextLine();
+        String cep  = Console.leLinhaTexto();
 
         System.out.println("Informe o nome do Logradouro:");
-        String logradouro  = scanner.nextLine();
+        String logradouro  = Console.leLinhaTexto();
 
         System.out.println("Informe o número do endereço:");
-        String numeroEndreco  = scanner.nextLine();
+        String numeroEndreco  = Console.leLinhaTexto();;
 
         System.out.println("Informe o bairro:");
-        String bairro  = scanner.nextLine();
+        String bairro  = Console.leLinhaTexto();
 
         System.out.println("Informe a cidade:");
-        String cidade  = scanner.nextLine();
+        String cidade  = Console.leLinhaTexto();
 
         System.out.println("Informe o Estado:");
-        String estado  = scanner.nextLine();
+        String estado  = Console.leLinhaTexto();
 
 
         Cliente cliente = new Cliente(nome,cpf, rg, dataNascimento, cep, logradouro, numeroEndreco, bairro, cidade, estado);

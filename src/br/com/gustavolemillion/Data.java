@@ -5,6 +5,7 @@ import java.sql.Date;
 public class Data {
 
     public static Date pedirData(){
+        Console.escreve("Informe a data de nascimento!");
         String dataStr = Console.leLinhaTexto();
 
         //XX-XX-XXXX

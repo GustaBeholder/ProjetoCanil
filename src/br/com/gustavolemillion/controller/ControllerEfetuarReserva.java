@@ -1,6 +1,7 @@
 package br.com.gustavolemillion.controller;
 
 
+import br.com.gustavolemillion.Console;
 import br.com.gustavolemillion.dao.CachorroDAO;
 import br.com.gustavolemillion.dao.ClienteDAO;
 import br.com.gustavolemillion.dao.ReservaDAO;
@@ -27,7 +28,7 @@ public class ControllerEfetuarReserva {
     }
 
     public static void menuEfetuaReserva(){
-        Scanner scanner = new Scanner(System.in);
+
         CachorroDAO cachorroDAO = new CachorroDAO();
         List<Cachorro> listaCachorro = cachorroDAO.retornaFilhotes();
         for(Cachorro cachorro: listaCachorro){
@@ -36,7 +37,7 @@ public class ControllerEfetuarReserva {
 
 
         System.out.println("Informe o Id do Cachorro:");
-        int idCachorro = scanner.nextInt();
+        int idCachorro = Console.leNumeroInteiro();
 
         ClienteDAO clienteDAO = new ClienteDAO();
         List<Cliente> listaCliente = clienteDAO.retornaCliente();
@@ -45,23 +46,25 @@ public class ControllerEfetuarReserva {
         }
 
         System.out.println("Informe o id do Cliente");
-        int idCliente = scanner.nextInt();
+        int idCliente = Console.leNumeroInteiro();
 
         Date dataReserva = new Date(System.currentTimeMillis());
 
 
         System.out.println("Qual o valor da Reserva?");
-        Double valorReserva = scanner.nextDouble();
+        Double valorReserva = Console.leNumeroDouble();
+
 
         System.out.println("Qual o valor integral do cachorro?");
-        Double valoIntegral = scanner.nextDouble();
+        Double valoIntegral = Console.leNumeroDouble();
+
 
         System.out.println("Qual a forma de entrega: Retirar no local - Transportadora");
-        String formaEntregue = "Retirar no local";
+        String formaEntregue =  Console.leLinhaTexto();
 
 
         System.out.println("Qual a forma pagamento? Pix - Débito - Crédito - Boleto");
-        String formaPagamento = "Crédito";
+        String formaPagamento = Console.leLinhaTexto();
 
         Reserva reserva = new Reserva(idCachorro, idCliente, dataReserva,"sim","não", "não",valorReserva, valoIntegral, formaEntregue, formaPagamento );
         ReservaDAO reservaDAO = new ReservaDAO();
